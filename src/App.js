@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import * as actions from './redux/actions/fetchData';
+import { connect } from 'react-redux'
+import { Route, Switch, withRouter } from 'react-router-dom';
+
+import Navbar from './containers/Navbar/Navbar';
+import Category from './containers/Category/Category';
+import ProductPage from './containers/ProductPage/ProductPage';
+import CartPage from './containers/CartPage/CartPage';
+
+class App extends Component {
+  displayOverlay = () => {
+
+  }
+  render() {
+    let render = <div>loading...</div>
+    render = <>
+      <Navbar></Navbar>
+      <Switch >
+        <Route path="/cart" component={CartPage} />
+        <Route path="/:id" component={ProductPage} />
+        <Route path="/" exact component={Category} />
+      </Switch >
+    </>
+    return (
+      <div id="main">
+        {render}
+      </div>
+    );
+  }
+
+}
+const mapStateToProps = state => {
+  return {
+    productToggle: state.fetchData.productToggle
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleProduct: () => dispatch(actions.toggleProduct())
+  }
 }
 
-export default App;
+export default (connect(mapStateToProps, mapDispatchToProps)((withRouter(App))));
