@@ -9,7 +9,6 @@ class Products extends Component {
   display = () => {
     let render = <div>loading...</div>
     if (!this.props.data.loading) {
-      console.log(this.props)
       const data = this.props.data;
       render = data.category.products.map((p) => {
         return (
@@ -48,7 +47,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(graphql(getDataByCat
   options: (props) => {
     return {
       onCompleted: (data) => {
-        console.log(data)
         let price = data.category.products[0].prices[0].amount;
         let rates = data.category.products[0].prices.map((el, index) => {
           return el.amount / price;

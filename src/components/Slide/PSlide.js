@@ -31,7 +31,6 @@ class PSlide extends Component {
                 <div className='p-slide'>
                     {this.displayPSlide()}
                 </div>
-
                 <img alt='' src={this.props.slideImage[this.state.seleted]}></img>
             </CSlideStyles>
 

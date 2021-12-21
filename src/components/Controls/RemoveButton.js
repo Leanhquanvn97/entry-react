@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 class RemoveButton extends Component {
     onRemoveFromCart = () => {
-        console.log(this.props.n)
         this.props.removeFromCart(this.props.n)
     }
     render(){

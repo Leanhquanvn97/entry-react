@@ -17,20 +17,18 @@ class CSlide extends Component {
     }
 
     displaySlide = () => {
-        if(this.props.slideImgs.length === 1){
+        if (this.props.slideImgs.length === 1) {
             return ''
         }
         return (
-                <div className='swift'>
-                    <div className='swift-left' onClick={this.onClickLeft}>❮</div>
-                    <div className='swift-right' onClick={this.onClickRight}>❯</div>
-                </div>
+            <div className='swift'>
+                <div className='swift-left' onClick={this.onClickLeft}>❮</div>
+                <div className='swift-right' onClick={this.onClickRight}>❯</div>
+            </div>
         )
 
     }
     render() {
-
-        console.log(this.state.selected)
         return (
             <PSlideStyles>
                 {this.displaySlide()}

@@ -26,7 +26,6 @@ const changeCur = (state, action) => {
 }
 
 const addToCart = (state, action) => {
-    console.log(state)
     let newProduct = action.payload
     let found = state.cart.find(el => el.id === newProduct.id && JSON.stringify(el.attributes) === JSON.stringify(newProduct.attributes))
     if (!found) {
@@ -67,14 +66,12 @@ const addToCart = (state, action) => {
 
 const removeFromCart = (state, action) => {
     let oldProduct = action.payload;
-    console.log(oldProduct)
     let found = state.cart.map((el, index) => {
         if (el.id === oldProduct.id && JSON.stringify(el.attributes) === JSON.stringify(oldProduct.attributes))
             return index
         else
             return false
     }).reduce((pv, cv) => pv + cv, 0);
-    console.log(found)
     if (found > -1) {
         if (state.cart[found].quantity > 1) {
             return {
@@ -93,7 +90,6 @@ const removeFromCart = (state, action) => {
             }
         }
         else {
-            console.log(found)
             return {
                 ...state,
                 totalPriceUSD: state.totalPriceUSD - oldProduct.prices[0].amount,

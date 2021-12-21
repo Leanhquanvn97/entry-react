@@ -12,7 +12,6 @@ class CartProduct extends Component {
             return <div>Empty</div>
         }
         return product.map((el, index) => {
-            console.log(el)
             return (
                 <li key={el.id + index}>
                     <CSlide slideImgs={el.gallery} ></CSlide>

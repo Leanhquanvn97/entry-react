@@ -31,7 +31,6 @@ class ProductPage extends Component {
     displayProduct = () => {
         const currency = this.props.currency;
         const data = this.props.data;
-        console.log(this.props)
         if (data.loading) {
             return <div>Loading...</div>
         } else {
