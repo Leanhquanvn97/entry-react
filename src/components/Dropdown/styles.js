@@ -68,11 +68,15 @@ export const DCart = styled.div`
     .cart-attributes li{
         border: none;
         padding: 0px;
+        max-height: 24px;
         line-height: 24px;
         text-align: left;
-
     }
-    .cart-attributes li:nth-child(3){
+    .color-attributes{
+        max-height: 24px;
+        max-width: 24px;
+    }
+    .cart-attributes li:nth-child(n+3){
         line-height: 2px;
         font-weight: bold;
         visibility: hidden;

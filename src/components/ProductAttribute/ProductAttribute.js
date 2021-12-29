@@ -83,12 +83,12 @@ class ProductAttribute extends Component {
                                 color = el.value
                                 return (
                                     <li key={el.id}
-                                        style={{ background: color, width:'65px', height: '43px' }}>
+                                    className='color-attributes'
+                                        style={{ background: color, width:'43px', height: '43px' }}>
                                     </li>)
                             } else {
                                 return (
                                     <li key={el.id}>
-                                        
                                         {el.id}:<span> {el.value}.</span>
                                     </li>
                                 )
