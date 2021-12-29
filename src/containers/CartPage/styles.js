@@ -42,8 +42,11 @@ button:hover{
     position: absolute;
     right: 150px;
     top: 20%;
+    font-size: 1.5rem;
+
 }
 .remove-button{
+    font-size: 1.5rem;
     position: absolute;
     bottom: 10%;
     right: 150px;
