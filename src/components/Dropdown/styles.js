@@ -5,8 +5,7 @@ export const DCart = styled.div`
     flex-direction: column;
     top: 75px;
     width: 325px;
-    right: 5%;
-    
+    right: 87px;
     z-index: 10;
     background: white;
     position: absolute;

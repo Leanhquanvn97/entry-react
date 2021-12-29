@@ -17,12 +17,14 @@ export const NavStyle = styled.ul`
         cursor: pointer;
     }
     >li{
+        
         border: 1px solid white;
         border-top: none;
     }
-    li a,
+    >li a,
     .dCart,
     .dCur{
+        color: black;
         line-height: 120%;
         height: 20px;
         text-decoration: none;
