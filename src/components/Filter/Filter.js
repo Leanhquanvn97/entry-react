@@ -2,7 +2,6 @@ import { graphql } from '@apollo/client/react/hoc';
 import React, { Component } from 'react'
 import { getCategories } from '../../queries/queries'
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
 class Filter extends Component {
     
     displayCategory = () => {
@@ -32,9 +31,5 @@ class Filter extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
 
-    }
-}
-export default connect(mapStateToProps)(graphql(getCategories)(Filter));
+export default (graphql(getCategories)(Filter));

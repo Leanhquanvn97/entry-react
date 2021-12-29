@@ -7,6 +7,5 @@ export {
 }from './cart'
 
 export {
-    toggleProduct,
-    changeCategory
+    toggleProduct
 } from './fetchData'

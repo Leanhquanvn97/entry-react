@@ -14,11 +14,7 @@ export const fetchData = (state = initialState, action) => {
                 ...state,
                 productToggle: !state.productToggle
             }
-        case actionTypes.CHANGE_CATEGORY:
-            return {
-                ...state,
-                category: action.payload
-            }
+        
         default:
             return state;
     }
