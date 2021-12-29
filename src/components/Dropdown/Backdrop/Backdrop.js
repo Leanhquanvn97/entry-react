@@ -11,13 +11,11 @@ class Backdrop extends Component {
         return ''
     }
     dropdownAttribute = () => {
-        console.log(this.props.productIdd)
         const currency = this.props.currency;
         const data = this.props.data;
         if (data.loading) {
             return <div className={this.dropClassName()}>Loading...</div>
         } else {
-            console.log(data)
             return (
                 <div className={this.dropClassName()} >
                     <h2>{data.product.brand}</h2>
@@ -28,9 +26,9 @@ class Backdrop extends Component {
                         buttonName="Add"
                         n={this.props.data.product}
                         attributes={this.props.data.product.attributes}
-                        inStock={data.product.inStock} 
-                        />
-                    <button onClick={()=>this.props.displayToggle()}>close</button>
+                        inStock={data.product.inStock}
+                    />
+                    <button onClick={() => this.props.displayToggle()}>close</button>
                 </div>
             )
         }

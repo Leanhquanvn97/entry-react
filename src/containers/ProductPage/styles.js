@@ -4,6 +4,7 @@ export const PPage = styled.section`
     display: flex;
     justify-content: space-between;
     padding: 5% 15% 0 15%;
+    height: 100vh;
     &.toggled{
         opacity: 0.5;
         background: rgba(57, 55, 72, 0.22);
@@ -12,6 +13,7 @@ export const PPage = styled.section`
     img{
         height: 500px;
         width: 500px;
+        object-fit: contain;
     }
     .d-imgs{
         max-width: 700px;
@@ -41,6 +43,9 @@ export const PPage = styled.section`
         width: 65px;
         height: 43px;
         box-sizing: border-box;
-        padding: 5px 10px 5px 10px;
+        text-align: center;
+    }
+    .selected{
+        
     }
 `

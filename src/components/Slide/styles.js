@@ -13,7 +13,7 @@ justify-content: space-between;
 .p-slide img{
     width: 80px;
     height: 80px;
-    object-fit: cover;
+    object-fit: contain;
 }
 .active{
     border: 1px solid black;
@@ -32,7 +32,7 @@ export const PSlideStyles = styled.div`
 .swift div{
     width: 10px;
     height: 100%;
-    border: 1px solid black;
+    opacity: 0.5;
 }
 .swift div:hover{
     cursor: pointer;

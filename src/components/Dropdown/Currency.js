@@ -29,7 +29,7 @@ class Currency extends Component {
     render() {
         return (
             <DCur>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu" >
                     {this.display()}
                 </ul>
             </DCur>

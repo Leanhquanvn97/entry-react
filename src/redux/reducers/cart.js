@@ -6,7 +6,8 @@ const initialState = {
     totalPrice: 0,
     currency: 0,
     currencySymbol: '$',
-    rates: []
+    rates: [],
+    totalItems: 0
 
 }
 
@@ -37,12 +38,14 @@ const addToCart = (state, action) => {
             ...state,
             cart: state.cart.concat(newProduct),
             totalPriceUSD: newProduct.prices[0].amount + state.totalPriceUSD,
-            totalPrice: (newProduct.prices[0].amount + state.totalPriceUSD) * state.rates[state.currency]
+            totalPrice: (newProduct.prices[0].amount + state.totalPriceUSD) * state.rates[state.currency],
+            totalItems: state.totalItems + 1
         }
     } else {
         return {
             ...state,
             totalPriceUSD: newProduct.prices[0].amount + state.totalPriceUSD,
+            totalItems: state.totalItems + 1,
             totalPrice: (newProduct.prices[0].amount + state.totalPriceUSD) * state.rates[state.currency],
             cart: state.cart.map(el => {
                 if (el.id === newProduct.id && JSON.stringify(el.attributes) === JSON.stringify(newProduct.attributes)) {
@@ -76,8 +79,9 @@ const removeFromCart = (state, action) => {
         if (state.cart[found].quantity > 1) {
             return {
                 ...state,
+                totalItems: state.totalItems - 1,
                 totalPriceUSD: state.totalPriceUSD - oldProduct.prices[0].amount,
-                totalPrice: (state.totalPriceUSD - oldProduct.prices[0].amount) * state.rates[state.currency],
+                totalPrice: Math.abs((state.totalPriceUSD - oldProduct.prices[0].amount) * state.rates[state.currency]),
                 cart: state.cart.map(el => {
                     if (el.id === oldProduct.id && JSON.stringify(el.attributes) === JSON.stringify(oldProduct.attributes)) {
                         return {
@@ -92,8 +96,9 @@ const removeFromCart = (state, action) => {
         else {
             return {
                 ...state,
+                totalItems: state.totalItems - 1,
                 totalPriceUSD: state.totalPriceUSD - oldProduct.prices[0].amount,
-                totalPrice: (state.totalPriceUSD - oldProduct.prices[0].amount) * state.rates[state.currency],
+                totalPrice: Math.abs((state.totalPriceUSD - oldProduct.prices[0].amount) * state.rates[state.currency]),
                 cart: state.cart.filter((el, index) => found !== index)
             }
         }

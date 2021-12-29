@@ -14,7 +14,7 @@ class Product extends Component {
         return ''
     }
     displayToggle = () => {
-        this.setState({productToggle: false})
+        this.setState({ productToggle: false })
     }
 
     displayAttribute = () => {
@@ -42,12 +42,13 @@ class Product extends Component {
         let instock = this.props.n.inStock;
         const currency = this.props.currency;
         return (
-            <div>
-                <ProductStyle >
-                    <Link to={`/${this.props.n.id}`}>
+            <ProductStyle className={this.state.productToggle ? 'add-clicked' : ''}>
+                <div >
+                    <Link to={`/product/${this.props.n.id}`}>
                         <div className='product-card' id={this.displayOFS()}>
                             {!instock ? <span>OUT OF STOCK</span> : ''}
                             <img src={this.props.n.gallery[0]} alt={this.props.n.name} />
+                            <div style={{ fontWeight: 'bold' }}>{this.props.n.brand}</div>
                             <div>{this.props.n.name}</div>
                             <div>{this.props.n.prices[currency].currency.symbol + " " + this.props.n.prices[currency].amount}</div>
                         </div>
@@ -55,9 +56,10 @@ class Product extends Component {
                     {instock ? <button className='disabled' onClick={this.onClickHandler}>
                         <CartIcon></CartIcon>
                     </button> : ''}
-                    {this.displayAttribute()}
-                </ProductStyle>
-            </div>
+                </div>
+
+                {this.displayAttribute()}
+            </ProductStyle>
         )
     }
 }

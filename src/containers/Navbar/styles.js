@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const NavStyle = styled.ul`
-    
     display: flex;
     background-color: #FFFFFF;
     list-style: none;
@@ -10,14 +9,17 @@ export const NavStyle = styled.ul`
     height: 80px;
     top: 0;
     left: 0;
-           
-    li:nth-child(4) {
+
+    li:nth-last-child(2) {
         margin-left: auto;
     }
-    li:nth-child(4):hover {
+    li:nth-last-child(2):hover {
         cursor: pointer;
     }
-    
+    >li{
+        border: 1px solid white;
+        border-top: none;
+    }
     li a,
     .dCart,
     .dCur{
@@ -29,10 +31,20 @@ export const NavStyle = styled.ul`
         top: calc(50% - 20px/2 - 16px);
         height: 20px;
     }
-    
-    li a:hover{
+     
+    >li.clicked{
         border-bottom: 1px solid green;
+    }
+    >li.clicked a{
         color: green;
+    }
+    >li a:hover{
+        color: green;
+    }
+    >li:nth-last-child(1):hover{
+        border: 1px solid green;
+        border-top: none;
+        border-bottom: none;
     }  
 
     .toggled{
@@ -57,8 +69,8 @@ export const NavStyle = styled.ul`
         
     }
     .dcur-toggled > div{
+        padding: 5px 0px 5px 0px;
         box-shadow: 0px 0px 5px 1px rgba(57, 55, 72, 0.22), 0px 0px 5px 1px rgba(57, 55, 72, 0.22) ;
-        height: 100px;
         max-height: 540px;
         transition: max-height 500ms;
         
@@ -82,7 +94,19 @@ export const NavStyle = styled.ul`
     .cart-icon{
         width: 20px;
         color: #43464E;
-        
+    }
+    .total-items{
+        position: absolute;
+        border-radius: 100%;
+        background: black;
+        color: white;
+        width: 15px;
+        height: 15px;
+        font-size: 0.7rem;
+        text-align: center;
+        line-height: 15px;
+        top: 20px;
+        right: 15px;
     }
 `
 

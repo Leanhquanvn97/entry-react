@@ -8,7 +8,7 @@ export const CategoryStyle = styled.div.attrs(props => {
     flex-direction: column;
     text-align: center;
     padding: 0 87px 0 87px;
-
+    height: 100vh;
     h1{
         text-align: left;
     }

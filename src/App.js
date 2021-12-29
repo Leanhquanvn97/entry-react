@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import * as actions from './redux/actions/fetchData';
 import { connect } from 'react-redux'
-import { Route, Switch, withRouter } from 'react-router-dom';
+import {Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 import Navbar from './containers/Navbar/Navbar';
 import Category from './containers/Category/Category';
@@ -19,8 +19,9 @@ class App extends Component {
       <Navbar></Navbar>
       <Switch >
         <Route path="/cart" component={CartPage} />
-        <Route path="/:id" component={ProductPage} />
-        <Route path="/" exact component={Category} />
+        <Route path="/product/:id" component={ProductPage} />
+        <Route path="/:id" component={Category} />
+        <Redirect to="/all"></Redirect>
       </Switch >
     </>
     return (

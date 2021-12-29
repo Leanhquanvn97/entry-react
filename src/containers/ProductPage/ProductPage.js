@@ -55,6 +55,7 @@ class ProductPage extends Component {
         }
     }
     render() {
+        console.log(this.props)
         return (
             <PPage className={this.onHoverProduct()}>
                 {this.displayProduct()}

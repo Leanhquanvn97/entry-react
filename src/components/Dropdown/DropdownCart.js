@@ -7,8 +7,10 @@ class DropdownCart extends Component {
     render() {
         return (
             <DCart>
-                <h4>My Bag</h4>
-                <CartProduct className="dProduct"></CartProduct>
+                <h4>My Bag, <span style={{ fontWeight: 'normal' }}>{this.props.totalItems} items</span></h4>
+
+
+                <CartProduct></CartProduct>
                 <div className='dcart-button'>
                     <Link to='/cart' className='to-cart-button'>
                         VIEW BAG

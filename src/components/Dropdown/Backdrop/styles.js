@@ -1,27 +1,39 @@
 import styled from 'styled-components'
 
 export const DropdownStyles = styled.div`
+display: flex;
+justify-content: center;
 button{
     width: 100%;
     margin-top:  5px;
-    background: #ffcccc;
+    background: white;
+    border: 1px solid black;
+}
+button:active{
+    background: rgb(230,230,230);
+}
+button:hover{
+    opacity: 0.7;
+}
+.add-button{
+    background: #5ECE7B;
+    color: white;
 }
 .dropdown-product{
+    padding: 15px;
     top: 10%;
-    right: 13%;
     position: absolute;
-    background:  #ffccff;        
+    background:  white;        
     z-index:1000;
-    height: auto;
-    width: auto;
-    width: 300px;
+    width: 318px;
     max-height: 350px;
     overflow: auto;
     text-align: left;
 }
 .els-attributes{
-    width: 40px;
-        height: 40px;
-        box-sizing: border-box;
+    width: auto;
+    min-width: 40px;
+    height: 40px;
+    box-sizing: border-box;
 }
 `   

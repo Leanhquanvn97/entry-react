@@ -79,13 +79,22 @@ class ProductAttribute extends Component {
                     <ul className='cart-attributes'>
                         {this.props.attributes.map(el => {
                             let color = ''
-                            if (el.id === 'Color')
+                            if (el.id === 'Color') {
                                 color = el.value
-                            return (
-                                <li key={el.id}
-                                    style={{ background: color }}>
-                                    {color ? '' : el.value}
-                                </li>)
+                                return (
+                                    <li key={el.id}
+                                        style={{ background: color, width:'65px', height: '43px' }}>
+                                    </li>)
+                            } else {
+                                return (
+                                    <li key={el.id}>
+                                        
+                                        {el.id}:<span> {el.value}.</span>
+                                    </li>
+                                )
+                            }
+
+
                         })}
                     </ul>
 
@@ -102,7 +111,7 @@ class ProductAttribute extends Component {
                         {this.props.currencySymbol + ' ' + this.props.productPrice}
                     </div>
                 </div>
-                {this.props.inStock ? <AddButton
+                {(this.props.inStock) ? <AddButton
                     n={this.props.n}
                     prAttributes={this.state.prAttributes}
                     buttonName={this.props.buttonName}

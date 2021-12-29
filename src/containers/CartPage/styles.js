@@ -2,10 +2,15 @@ import styled from 'styled-components'
 
 export const PageCart = styled.section`
 padding: 0 87px 0 87px;
+height: 100vh;
 &.toggled{
     opacity: 0.5;
     background: rgba(57, 55, 72, 0.22);
     transition: background 500ms;
+}
+h1{
+    margin: 0px;
+    padding: 30px 0px 30px 0px;
 }
 >ul>li{
     margin-left: 0px;
@@ -40,13 +45,14 @@ button:hover{
 }
 .remove-button{
     position: absolute;
-    bottom: 28px;
+    bottom: 10%;
     right: 150px;
 }
 .quantity{
     position: absolute;
-    right: 150px;  
+    right: 165px;  
     top: 50%;
+    font-size: 1.2rem;
 }
 .cart-attributes{
     position: absolute;
@@ -57,11 +63,7 @@ button:hover{
     
 }
 .cart-attributes li{
-    background: black;
-    color: white;
-    border: 1px solid white;
-    width: 65px;
-        height: 43px;
+    border: none;
 }
 
 .price{

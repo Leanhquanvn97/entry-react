@@ -1,29 +1,40 @@
 import { graphql } from '@apollo/client/react/hoc';
 import React, { Component } from 'react'
-import {getCategories} from '../../queries/queries'
-import {DCate} from './styles'
+import { getCategories } from '../../queries/queries'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 class Filter extends Component {
+    
     displayCategory = () => {
-        if(this.props.data.loading){
+        if (this.props.data.loading) {
             return <>Is Loading ...</>
-        }else{
-            return this.props.data.categories.map((el)=>{
-                return <li key={el.name} onClick={()=>this.props.disCategories(el.name)}>{el.name}</li>
+        } else {
+
+            return this.props.data.categories.map((el) => {
+                return <li key={el.name}
+                className={this.props.pathName === el.name ? 'clicked' : ''}>
+                    <Link to={`/${el.name}`}
+                        style={{ textTransform: 'uppercase' }}
+                        
+                    >{el.name}</Link>
+                </li>
             })
         }
-        
-    }
-    onClickHandler = () =>{
 
     }
+
     render() {
         return (
-            <DCate >
-                <li onClick={()=>this.props.disCategories('')}></li>
+            <>
                 {this.displayCategory()}
-            </DCate>
+            </>
         )
     }
 }
 
-export default graphql(getCategories)(Filter);
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+export default connect(mapStateToProps)(graphql(getCategories)(Filter));

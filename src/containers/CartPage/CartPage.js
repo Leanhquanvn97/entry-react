@@ -23,6 +23,7 @@ class ProductPage extends Component {
 const mapStateToProps = state => {
     return {
         cartToggle: state.cart.hover
+        
     }
 
 }

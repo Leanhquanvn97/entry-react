@@ -20,7 +20,7 @@ export const ProductStyle = styled.div`
     img{
         height: 356px;
         width: 338px;
-        object-fit: cover;
+        object-fit: contain;
     }
     :hover{
         cursor: pointer;
@@ -55,9 +55,13 @@ export const ProductStyle = styled.div`
         width: 25px;
         background: #5ECE7B;
         color: white;
-        
     }
-    
+    &.add-clicked{
+        background: rgba(57, 55, 72, 0.22);
+    }
+    &.add-clicked img{
+        opacity: 0.22;
+    }
   
 }  
 `

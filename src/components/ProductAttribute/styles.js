@@ -11,19 +11,15 @@ export const PAtt = styled.div`
     li{
         border: 1px solid;
         text-align: center;
-        padding-top: 17%;
+        line-height: 43px;
         box-sizing: border-box;
     }
-    li:hover{
-        cursor: pointer;
-    }
+    
     .selected{
-        background: black;
-        color: white;
+        opacity: 0.7;
+        border: 3px solid #221c45;
     }
-    h4{
-        font-size: 1.1rem;
-    }
+    
     
 }  
 `

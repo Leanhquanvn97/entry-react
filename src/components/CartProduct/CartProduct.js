@@ -13,7 +13,7 @@ class CartProduct extends Component {
         }
         return product.map((el, index) => {
             return (
-                <li key={el.id + index}>
+                <li key={el.id + index} >
                     <CSlide slideImgs={el.gallery} ></CSlide>
                     <h3 className='brand'> {el.brand}</h3>
                     <div className='product-name'>{el.name}</div>
@@ -22,8 +22,8 @@ class CartProduct extends Component {
                         currencySymbol={this.props.currencySymbol}
                         productPrice={el.prices[currency].amount}
                         buttonName="+" n={el}
-                        attributes={el.attributes} 
-                        inStock={true}/>
+                        attributes={el.attributes}
+                        inStock={true} />
                     <RemoveButton n={el} buttonName="-"></RemoveButton>
                 </li>
 
@@ -35,7 +35,10 @@ class CartProduct extends Component {
         return (
             <PCart>
                 {this.displayCart()}
-                <div><span>TOTAL</span> {this.props.data.currencySymbol + " " + (this.props.data.totalPrice).toFixed(2)}</div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span>TOTAL</span>
+                    {this.props.data.currencySymbol + " " + (this.props.data.totalPrice).toFixed(2)}
+                </div>
             </PCart>
         )
     }

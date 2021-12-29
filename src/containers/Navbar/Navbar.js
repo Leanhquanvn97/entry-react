@@ -6,13 +6,13 @@ import * as actions from '../../redux/actions/index'
 import DropdownCart from '../../components/Dropdown/DropdownCart';
 import CartIcon from '../../components/Icons/CartIcon';
 import Currency from '../../components/Dropdown/Currency';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import Filter from '../../components/Filter/Filter';
 class Navbar extends Component {
     state = {
         selected: false,
-        
+
     }
-    
     onHoverHandler = () => {
         this.props.toggleCart()
     }
@@ -32,20 +32,20 @@ class Navbar extends Component {
     onCurLeave = () => {
         this.setState({ selected: false })
     }
-    dropdownCur = () =>{
+    dropdownCur = () => {
         if (this.state.selected) {
             return "dcur-toggled"
         } else {
             return "dcur-not-toggled"
         }
     }
+    displayCategories = () => {
 
+    }
     render() {
         return (
             <NavStyle>
-                <li><a onClick={()=> false} href="/">WOMEN</a></li>
-                <li><a href="/">MEN</a></li>
-                <li><a href="/">KIDS</a></li>
+                <Filter pathName={this.props.location.pathname.slice(1)}></Filter>
                 <li onMouseEnter={this.onCurHover} onMouseLeave={this.onCurLeave}>
                     <div className="dCur">{this.props.currencySymbol}</div>
                     <div className={this.dropdownCur()}>
@@ -54,11 +54,18 @@ class Navbar extends Component {
 
                 </li>
                 <li onMouseEnter={this.onHoverHandler} onMouseLeave={this.onLeaveHandler}>
-                    <Link className="dCart" to='/cart'  >
-                        <CartIcon></CartIcon>
-                    </Link>
+                    <div style={{ position: 'relative', zIndex: '11', background: 'white' }}>
+                        <Link className="dCart" to='/cart'  >
+                            <CartIcon></CartIcon>
+                            <span className={`total-items `}
+                                style={this.props.totalItems === 0 ? { display: 'none' } : { display: 'block' }}>
+                                {this.props.totalItems}</span>
+                        </Link>
+                    </div>
+
+
                     <div className={this.dropdownCart()} >
-                        <DropdownCart ></DropdownCart>
+                        <DropdownCart totalItems={this.props.totalItems}></DropdownCart>
                     </div>
                 </li>
             </NavStyle>
@@ -70,7 +77,8 @@ const mapStateToProps = state => {
     return {
         cartToggle: state.cart.hover,
         currency: state.cart.currency,
-        currencySymbol: state.cart.currencySymbol
+        currencySymbol: state.cart.currencySymbol,
+        totalItems: state.cart.totalItems
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -78,4 +86,4 @@ const mapDispatchToProps = dispatch => {
         toggleCart: () => dispatch(actions.cartToggle())
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)((Navbar));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar));
