@@ -8,7 +8,6 @@ const initialState = {
     currencySymbol: '$',
     rates: [],
     totalItems: 0
-
 }
 
 const changeRates = (state, action) =>{
@@ -111,7 +110,7 @@ export const cart = (state = initialState, action) => {
         case actionTypes.REMOVE_PRODUCT:
             return removeFromCart(state, action);
         case actionTypes.CART_TOGGLE:
-            return { ...state, hover: !state.hover }
+            return { ...state, hover: action.payload }
         case actionTypes.CHANGE_CURRENCY:
             return changeCur(state, action)
         case actionTypes.CHANGE_RATES:

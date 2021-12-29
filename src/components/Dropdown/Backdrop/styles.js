@@ -18,6 +18,7 @@ button:hover{
 .add-button{
     background: #5ECE7B;
     color: white;
+    border: 1px solid white;
 }
 .dropdown-product{
     padding: 15px;

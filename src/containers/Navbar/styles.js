@@ -10,10 +10,10 @@ export const NavStyle = styled.ul`
     top: 0;
     left: 0;
 
-    li:nth-last-child(2) {
+    >li:nth-last-child(2) {
         margin-left: auto;
     }
-    li:nth-last-child(2):hover {
+    >li:nth-last-child(2):hover {
         cursor: pointer;
     }
     >li{

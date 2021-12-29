@@ -56,25 +56,35 @@ export const DCart = styled.div`
         top: 50%;
         font-size: 1rem;
     }
+    
     .cart-attributes{
-        display: none;
+        position: absolute;
+        left: 0;  
+        top: 40%;
+        padding: 0px;
+        margin: 0px;
+        flex-direction: column;
     }
-    // .cart-attributes{
-    //     position: absolute;
-    //     left: 0;  
-    //     bottom: 16px;
-    //     padding: 0px;
-    //     margin: 0px;
-        
-    // }
-    // .cart-attributes li{
-    //     overflow: hidden;
-    //     width: 24px;
-    //     height: 24px;
-    //     padding: 0px;
-    //     line-height: 24px;
-    //     border: 1px solid;
-    // }
+    .cart-attributes li{
+        border: none;
+        padding: 0px;
+        line-height: 24px;
+        text-align: left;
+
+    }
+    .cart-attributes li:nth-child(3){
+        line-height: 2px;
+        font-weight: bold;
+        visibility: hidden;
+    }
+    .cart-attributes li:nth-child(3):after{
+        content:'goodbye'; 
+        visibility: visible;
+        display: block;
+        content: '...';
+        line-height: 2px;
+        font-weight: bold;
+    }
     .price{
         position: absolute;
         left: 0;  

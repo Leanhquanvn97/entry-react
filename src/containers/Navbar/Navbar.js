@@ -14,10 +14,10 @@ class Navbar extends Component {
 
     }
     onHoverHandler = () => {
-        this.props.toggleCart()
+        this.props.toggleCart(true)
     }
     onLeaveHandler = () => {
-        this.props.toggleCart()
+        this.props.toggleCart(false)
     }
     dropdownCart = () => {
         if (this.props.cartToggle) {
@@ -83,7 +83,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        toggleCart: () => dispatch(actions.cartToggle())
+        toggleCart: (data) => dispatch(actions.cartToggle(data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar));

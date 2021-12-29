@@ -13,8 +13,9 @@ export const removeProduct = (data) =>{
         payload: data
     }
 }
-export const cartToggle = () =>{
+export const cartToggle = (data) =>{
     return {
+        payload: data,
         type: actionTypes.CART_TOGGLE
     }
 }
